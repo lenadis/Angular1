@@ -1,0 +1,28 @@
+<form name="myform" novalidate>
+    <p>Feel free to contact me if you have any questions.</p>
+
+    <fieldset>
+        <div class="form-group" ng-class="{'has-error': myform.firstname.$invalid && myform.firstname.$touched, 'has-success': myform.firstname.$valid}">
+        <input class="form-control" type="text" name="firstname" placeholder="First Name"
+               ng-model="user.firstname" 
+               ng-required="true"
+               >
+        <p ng-show="myform.firstname.$invalid && myform.firstname.$touched">You must fill out your first name.</p>
+        </div>
+
+        <div class="form-group">
+            <input  class="form-control"  type="email" name="email" placeholder="Email" 
+               ng-model="user.email">
+
+            <p ng-show="myform.email.$invalid && myform.email.$touched">Please enter a valid email.</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': myform.contacttext.$invalid && myform.contacttext.$touched , 'has-success': myform.contacttext.$valid}">
+        <input class="form-control" type="text" name="contacttext" placeholder="Your message."
+               ng-model="user.contacttext"
+               ng-required="true">
+        <p ng-show="myform.contacttext.$invalid && myform.contacttext.$touched">Please enter a message.</p>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </fieldset>
+</form>
